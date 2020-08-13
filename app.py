@@ -26,10 +26,10 @@ def show_hello_page():
     return render_template('home.html')
 
 
-@application.route('/code/<int:id>')
-def show_code_page(id):
-    code = Code.query.get(id)
-    return render_template('code.html', code=code)
+#@application.route('/code/<int:id>')
+#def show_code_page(id):
+#    code = Code.query.get(id)
+#    return render_template('code.html', code=code)
 
 
 @application.route('/about')
@@ -43,11 +43,11 @@ def code_update(id):
     if request.method == 'POST':
         code.name = request.form['name']
         code.code = request.form['code']
-        code.date = request.form['date']
+        #code.date = request.form['date']
 
         try:
             db.session.commit()
-            return redirect("/code/<int:id>")
+            return redirect('/code/{}/update'.format(id))
         except:
             return "Code editing error."
 
@@ -72,14 +72,14 @@ def add_code():
     if request.method == 'POST':
         name = request.form['name']
         code = request.form['code']
-        print(name, code)
+
+        count = len(Code.query.all()) + 1
 
         codeAdd = Code(name=name, code=code)
-        print(codeAdd)
         try:
             db.session.add(codeAdd)
             db.session.commit()
-            return redirect("/")
+            return redirect('/code/{}/update'.format(count))
         except:
             return "Code adding error."
         # return redirect(f'/{id}')
