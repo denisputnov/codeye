@@ -50,9 +50,18 @@ button:focus {
     text-align: center;
     padding-left: auto;
     margin-right: auto;
-    margin-top: 10%;
+    margin-top: 15vh;
     
     color: #000 !important;
+}
+
+.main_about_animation_class {
+    transition-duration: 300ms;
+}
+
+.main_about_animation_class:hover {
+    font-size: 20px;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .main_codeye_button {
@@ -71,6 +80,7 @@ button:focus {
 
 .main_codeye_button:hover {
     background: #647aff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .main_codeye_button_text {
@@ -161,11 +171,18 @@ button:focus {
 }
 
 .main_line_one {
-    background-size: 100%; /* Современные браузеры */
+    object-fit: fill;
+    position: absolute;
     z-index: 5;
 }
 
 .main_line_two {
-    background-size: 100%; /* Современные браузеры */
+    object-fit: fill;
+    position: absolute;
     z-index: -15;
 }   
+
+.main_lines {
+    width: 100vw;
+    height: 100vh;
+}
