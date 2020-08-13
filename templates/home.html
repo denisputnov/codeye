@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title></title>
+    <title>Codeye</title>
 </head>
 <body>
     <div class="main_ellipse">
@@ -16,13 +16,13 @@
             - study and enjoy
         </p>
         <button class="main_codeye_button align-middle"><a href="/add_code" class="main_codeye_button_text">Share Code</a></button>
-        <p class="main_about_button_text"><a href="/about">About</a></p>
+        <p class="main_about_button_text"><a href="/about" class="main_about_animation_class">About</a></p>
         <p class="main_copyright">Copyright © 2020<br>Denis Putnov & Cherednichenko Daniel<br>All rights reserved</p>
     </div>
-    <!-- <img class="main_line_one" src="{{ url_for('static', filename='images/line1.png') }}"></img> -->
+    <div class="main_line_one"><img class="main_lines" src="{{ url_for('static', filename='images/line1-s.png') }}"></img></div>
     <div class="main_draw">
         <div class="main_sun"><p class="main_nonono"><img src="{{ url_for('static', filename='images/nonono.png') }}" alt=""></p></div>
     </div>
-    <!-- <img class="main_line_two" src="{{ url_for('static', filename='images/line2.png') }}"></img> -->
+    <div class="main_line_two"><img class="main_lines" src="{{ url_for('static', filename='images/line2-s.png') }}"></img></div>
 </body>
 </html>
