@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Add your code and share
+{% endblock %}
+
+{% block body%}
+<div class="container mt-5">
+    <a class="btn btn-toolbar" href="http://127.0.0.1:5000/home">Home</a>
+    <h3>Code adding</h3>
+    <form method="post">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Enter name"><br>
+        <textarea name="code" id="code" cols="30" rows="10" class="form-control" placeholder="Enter code"></textarea><br>
+        <input type="submit" class="btn btn-success" value="Send">
+        <h1> </h1>
+    </form>
+</div>
+{% endblock %}
