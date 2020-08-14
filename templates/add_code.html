@@ -5,8 +5,8 @@ Add your code and share
 {% endblock %}
 
 {% block body%}
-<div class="container mt-5">
-    <!-- <a class="btn btn-toolbar" href="http://127.0.0.1:5000/home">Home</a> -->
+<!-- <div class="container mt-5">
+    <a class="btn btn-toolbar" href="http://127.0.0.1:5000/home">Home</a>
     <h3>Code adding</h3>
     <form method="post">
         <input type="text" name="name" id="name" class="form-control" placeholder="Enter name"><br>
@@ -14,5 +14,15 @@ Add your code and share
         <input type="submit" class="btn btn-success" value="Send">
         <h1> </h1>
     </form>
-</div>
+</div> -->
+<form method="post">
+    <div class="code_edit_block">
+        <textarea spellcheck="false" required="true" tabindex="4" name="code" id="code" class="code_edit_code" placeholder="Write your code here">Write your code here</textarea>
+    </div>
+    <input class="button_confirm" type="submit" value="Confirm">
+    <div class="description_bar">
+        <input name="name" id="name" class="code_add_name" placeholder="Enter your name/nickname" required="false" spellcheck="false"></input>
+        <textarea name="descriprion" id="description" style="font-size: 14px;" class="description_bar_textarea" whap="hard">Description here</textarea>
+    </div>
+</form>
 {% endblock %}

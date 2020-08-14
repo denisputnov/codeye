@@ -10,17 +10,6 @@ Edit your code
         <!-- <textarea name="name" id="name" class="code_edit_name" placefolder="Enter your name/nickname">{{ code.name }}</textarea> -->
         <textarea spellcheck="false" required=True tabindex=4 name="code" id="code" class="code_edit_code" placeholder="Write your code here">{{ code.code }}</textarea>
     </div>
-    <!-- <div>
-        <div class="container mt-5">
-            <h3>Code editing</h3>
-            <form method="post">
-                <input type="text" name="title" id="title" class="form-control" value="{{ code.name }}" placeholder="Enter title"><br>
-                <textarea name="intro" id="intro" class="form-control" placeholder="Enter intro">{{ code.code }}</textarea><br>
-                <textarea name="text" id="text" class="form-control" placeholder="Enter text">{{ code.date }}</textarea><br>
-                <h1> </h1>
-            </form>
-        </div>
-    </div> -->
     <input class="button_confirm_changes" type="submit" value="Confirm changes">
     <div class="description_bar">
         <p class="code_suggested_by">Code suggested by: {{ code.name }}</p>

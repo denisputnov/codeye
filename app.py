@@ -45,7 +45,7 @@ def code_update(hash):
     code = Code.query.get(hash)
     if request.method == 'POST':
         try:
-            code.name = request.form['name']
+            # code.name = request.form['name']
             code.code = request.form['code']
             #code.date = request.form['date']
         except:
