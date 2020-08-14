@@ -1,15 +1,75 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en" class='main_page_background' class="bg-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% block title%}
-About us & project
-{% endblock %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-
-{% block body%}
-<div class="container mt-5">
-    <h3>About Project</h3>
-    <p>SOME TEXT</p>
-    <h3>Article dev team</h3>
-    <p>SOME TEXT</p>
-</div>
-{% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>About</title>
+</head>
+<body style="z-index: -10;">
+    <div class="container">
+        <div class="about_site_description">
+            <p class="about_site_text">Hi there, we are <b>codeye.ru</b> developers!</p>
+            <p class="about_site_text">
+codeye - free & open project for developers all over the world!<br>
+Idea of this project were comes to us actually suddenly, and we were begun! It's extremely important project for us at least because it is first one :)<br>
+This web-app created to facilitate code sharing. It's immensely important to take help as fast and comfort as possible. That's why we're doing that. Using codeye.ru you will not send your code in chats and personal dialogues. This web-app will help you make your programmer's life easier.<br>
+We are students, we are friends and we are codeye. 
+            </p>
+            <p class="about_site_text" style="color: #968989"><i>love,<br>codeye.ru team</i></p>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="about_personal_dev_card col-md-20 col-xl-5">
+                    <img class="about_card_photo" src="https://avatars.githubusercontent.com/grnbows" alt="">
+                    <a href="https://t.me/grnbows"><img class="telegram_icon" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/telegram/telegram.png" alt=""></a>
+                    <p class="about_card_name">Denis Putnov | grnbows</p>
+                    <hr>
+                    <p class="about_card_personal_list">• Chat-Bot dev<br>• Python<br>• Flutter/Dart<br>• Web-Technologies<br>• Designer<br></p>
+                    <p class="about_card_message" lang="ru">Готов пообщаться с каждым. Просто напишите мне в телеграме, окей?)<br>А ещё я всех жду в своём <a class="grnbows_telegram_channel_link" href="https://t.me/prog_way_blog">Telegram канале</a></p>
+                    <hr>
+                    <p class="about_card_find_me_here">Find me here:</p>
+                    <div class="about_personal_links">
+                        <a href="https://github.com/grnbows"><img align="center" alt="Repositories" width="22px" src="https://raw.githubusercontent.com/github/explore/78df643247d429f6cc873026c0622819ad797942/topics/github/github.png" />
+                        <a href="https://twitter.com/grnbows"><img align="center" alt="Twitter" width="22px" src="https://cdn.worldvectorlogo.com/logos/twitter-3.svg" /></a>
+                        <a href="https://www.linkedin.com/in/grnbows/"><img align="center" alt="LinkedIn" width="22px" src="https://cdn.worldvectorlogo.com/logos/linkedin-icon.svg" /></a>
+                        <a href="https://vk.com/grnbows"><img align="center" alt="VK" width="22px" src="https://cdn.worldvectorlogo.com/logos/vkcom.svg" /></a> 
+                        <a href="https://www.instagram.com/grnbows/"><img align="center" alt="Instagram" width="22px" src="https://cdn.worldvectorlogo.com/logos/instagram-2-1.svg" /></a>
+                    </div>
+                </div>
+                <div class="about_personal_dev_card col-md-20 col-xl-5">
+                    <img class="about_card_photo" src="https://avatars.githubusercontent.com/syth0le" alt="">
+                    <a href="https://t.me/syth0le"><img class="telegram_icon" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/telegram/telegram.png" alt=""></a>
+                    <p class="about_card_name">Daniel Cherednichenko | syth0le</p>
+                    <hr>
+                    <p class="about_card_personal_list">• Python<br>• Machine Learning & Data Science<br>• NLP<br>• Kotlin<br>• Mobile developing</p>
+                    <p class="about_card_personal_description">Machine Learning мое призвание, но и сайтики писать прикольно. Если что, то отпишитесь в телегу, обкашляем любой вопросик ;)</p>
+                    <hr>
+                    <p class="class about_card_find_me_here">Find me here:</p>
+                    <div class="about_personal_links">
+                        <a href="https://github.com/syth0le"><img align="center" alt="Repositories" width="22px" src="https://raw.githubusercontent.com/github/explore/78df643247d429f6cc873026c0622819ad797942/topics/github/github.png" /></a>
+                        <a href="https://www.linkedin.com/in/syth0le/"><img align="center" alt="LinkedIn" width="22px" src="https://cdn.worldvectorlogo.com/logos/linkedin-icon.svg" /></a>
+                        <a href="https://vk.com/sythole"><img align="center" alt="VK" width="22px" src="https://cdn.worldvectorlogo.com/logos/vkcom.svg" /></a> 
+                        <a href="https://www.instagram.com/syth0le/"><img align="center" alt="Instagram" width="22px" src="https://cdn.worldvectorlogo.com/logos/instagram-2-1.svg" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="about_footer">
+        <div class="about_footer_contacts"><p class="contact_us_here_text">Contact us here:</p><p class="about_footer_email">codeye@gmail.com</p><br></div>
+        <div class="about_copyright">Copyright © 2020 Denis Putnov & Cherednichenko Daniel | All rights reserved</div>
+    </footer>
+    <img class="about_background_logo" src="{{ url_for('static', filename='images/codeye.png') }}">
+</body>
+</html>

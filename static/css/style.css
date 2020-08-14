@@ -493,11 +493,162 @@ button:focus {
     border: 0;
     margin-top: 12px;
     margin-bottom: 12px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .code_add_name:focus {
     outline: none;
     border: 0;
+}
+
+.about_footer {
+    display: block;
+    background: #F3F3F3;
+    height: 300px;
+    z-index: 10;
+}
+
+.about_personal_dev_card {
+    height: 800px;
+    width: auto;
+    background: white;
+    margin: auto;
+    margin-bottom: 120px;
+    margin-top: 100px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); 
+    transition-duration: 1000ms;
+    border-radius: 20px;
+    max-width: 700px;
+    z-index: 10;
+}
+
+.about_personal_dev_card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);    
+}
+
+.about_site_description {
+    min-height: 500px;
+    height: auto;
+    width: 100%;
+    padding-top: 100px;
+    z-index: 10;
+}
+
+.about_site_text {
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    width: auto;
+    font-size: 20px;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    z-index:10 !important;
+
+}
+
+.about_card_photo {
+    display: block;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);    
+    transition-duration: 1s;
+    
+}
+
+.about_personal_dev_card:hover .about_card_photo {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);    
+}
+.about_card_name {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.about_card_personal_list {
+    margin-left: 40px; 
+}
+
+.telegram_icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: 25px;
+    right: 25px;   
+}
+
+.about_card_message {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.about_personal_links {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+}
+
+.about_card_find_me_here {
+    margin: 0;
+    padding: 0;
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    width: auto;
+    font-size: 14px;
+    color: black;
+    position: absolute;
+    left: 25px;
+    bottom: 50px;
+}
+
+.grnbows_telegram_channel_link {
+    color: #2f6397 !important;
+}
+
+.about_footer_contacts {
+    padding-top: 60px;
+    margin-bottom: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact_us_here_text {
+    margin-bottom: 0;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+.about_copyright {
+
+    color: #999999;
+    text-align: center;
+    margin-top: 10px;
+    bottom: 0;
+}
+
+.about_footer_email {
+    font-weight: bold !important;
+}
+
+.about_background_logo {
+    display: block;
+    top: 0;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 100vw;
+    position: absolute;
+    z-index: 1 !important;
+    pointer-events: none;
+    opacity: 20%;
 }
