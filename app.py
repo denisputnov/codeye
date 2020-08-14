@@ -30,12 +30,6 @@ def show_hello_page():
     return render_template('home.html')
 
 
-# @application.route('/code/<int:id>')
-# def show_code_page(id):
-#    code = Code.query.get(id)
-#    return render_template('code.html', code=code)
-
-
 @application.route('/about')
 def show_about_page():
     return render_template('about.html')
@@ -46,10 +40,6 @@ def code_update(hash):
     code = Code.query.get(hash)
     if request.method == 'POST':
         try:
-<<<<<<< HEAD
-=======
-            # code.name = request.form['name']
->>>>>>> 84af0b0240d8ab80ac47006448a314657d4dd332
             code.code = request.form['code']
             ## такие же поля для добавления текста сбоку и картинок
             code.description = request.form['description']
@@ -94,9 +84,7 @@ def add_code():
         # print(codeAdd.hash)
         try:
             db.session.add(codeAdd)
-            print(1)
             db.session.commit()
-            print(2)
             return redirect('/code/{}/update'.format(codeAdd.hash))
         except:
             return "Code adding error."
