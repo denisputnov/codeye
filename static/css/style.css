@@ -2,27 +2,35 @@
     font-family: Consolas,monaco,monospace; 
 }
 
+::-webkit-scrollbar {
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent; 
+}
+
+html {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
 a {
     color: #000; 
     text-decoration: none;
-   }
-   a:visited {
+}
+a:visited {
     color: #000;
-   } 
-   a:hover {
+    text-decoration: none;
+} 
+a:hover {
     color: #000;  
     text-decoration: none;
-   }
-
-a {
-    text-decoration: none !important;
 }
+
 
 button, 
 button:active, 
 button:focus {
-    outline: none;
-    border: 0;
+    outline: none !important;
+    border: 0 !important;
 }
 
 .main_copyright {
@@ -139,7 +147,6 @@ button:focus {
 .main_page_background {
     width: 100%; 
     height: 100%; 
-    /* background: rgb(133,90,255); */
     background: linear-gradient(214deg, rgba(133,90,255,1) 0%, rgba(8,213,255,1) 100%);
 }
 
@@ -185,4 +192,291 @@ button:focus {
 .main_lines {
     width: 100vw;
     height: 100vh;
+}
+
+.nav_codeye_button {
+    margin-left: 20px;
+    margin-right: auto;
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 35px;
+    text-align: left;
+}
+
+.nav_codeye_button:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.nav_codeye_button:active {
+    color: #000;
+    text-decoration: none;
+}
+
+.nav_about {
+    margin-right: 40px;
+    margin-left: auto;
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 35px;
+    text-align: left;
+}
+
+.nav_about:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.nav_about:active {
+    text-decoration: none;
+    color: black
+}
+
+.nav_button_share_code {
+    transition-duration: 300ms;
+    background: #3f9eff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav_button_share_code:hover {
+    background: #647aff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav_button_share_code_text {
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 47px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    
+    color: #FFF !important
+}
+
+.nav_button_share_code_text:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.nav_button_share_code_text:active {
+    text-decoration: none;
+    color: white;
+}
+
+.nav_footer {
+    position: absolute;
+    background: white;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    height: 36px;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav_footer_text_size_button {
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    width: auto;
+    font-size: 16px;
+    padding: 0;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    background: white;
+}
+
+.nav_footer_text_language {
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    width: auto;
+    font-size: 16px;
+    padding: 0;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    background: white;
+}
+
+.nav_footer_text_size_button_text {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.nav_footer_text_language_text {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.nav_footer_arrow_up {
+    width: 16px;
+    margin-left: 8px;
+}
+
+.description_bar {
+    z-index: 5;
+    min-width: 400px;
+    box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    right: 0;
+    height: auto;
+    bottom: 36px;
+    top: 80px;
+    overflow: hidden !important;
+}
+
+.description_bar_textarea {
+    overflow: auto;
+    z-index: 6;
+    width: 95%;
+    background: white;
+    outline: none;
+    border: 0;
+    display: block;
+    margin: auto;
+    margin-top: 0;
+    resize: none;
+    min-height: 85vh;
+    bottom: 0;
+}
+
+.description_bar_textarea:focus {
+    outline: none;
+    border: 0;
+}
+
+.button_suggest_a_solution {
+    position: absolute !important;
+    width: 240px;
+    z-index: 50 !important;
+
+    transition-duration: 300ms;
+    background: #3f9eff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    border: 0;
+
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    right: 0;
+    margin-right: 80px;
+    
+    bottom: 18px;
+}
+
+.button_suggest_a_solution:hover {
+    background: #647aff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button_suggest_a_solution:focus,
+.button_suggest_a_solution:active {
+    outline: none !important;
+    border: 0 !important;
+}
+
+.button_confirm_changes {
+    position: absolute !important;
+    width: 200px;
+    z-index: 50 !important;
+
+    transition-duration: 300ms;
+    background: #3f9eff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    border: 0;
+
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    right: 0;
+    margin-right: 100px;
+    
+    bottom: 18px;
+}
+
+.button_confirm_changes:hover {
+    background: #647aff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button_confirm_changes:focus,
+.button_confirm_changes:active {
+    outline: none !important;
+    border: 0 !important;
+}
+
+.code_edit_block {
+    position: absolute;
+
+    left: 0;
+    right: 400px;
+    top: 80px;
+    bottom: 36px;
+    width: auto;
+
+    background: white;
+    z-index: -15;
+}
+
+.code_edit_code {
+    position: absolute;
+    outline: none;
+    
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    padding-left: 40px;
+    
+    border: 0;
+    z-index: -10;
+    resize: none;
+}
+
+.code_edit_code:focus {
+    outline: none;
+    border: 0;
+}
+
+.code_suggested_by {
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    text-align: center;
+    color: #999999;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    margin-bottom: 10px;
 }

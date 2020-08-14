@@ -6,14 +6,17 @@ Edit your code
 
 {% block body%}
 <div class="container mt-5">
-    <!--<a class="btn btn-toolbar" href="http://127.0.0.1:5000/home">Home</a>-->
+    <a class="btn btn-toolbar" href="/home">Home</a>
     <h3>Code editing</h3>
     <form method="post">
-        <input type="text" name="name" id="name" class="form-control" value="{{ code.name }}" placeholder="Enter title"><br>
-        <textarea name="code" id="code" rows="7" class="form-control" placeholder="Enter code">{{ code.code }}</textarea><br>
-        <h6>Publication date: {{ code.date }}</h6><br>
-        <input type="submit" class="btn btn-success" value="Edit">
+        <input type="text" name="title" id="title" class="form-control" value="{{ code.name }}" placeholder="Enter title"><br>
+        <textarea name="intro" id="intro" class="form-control" placeholder="Enter intro">{{ code.code }}</textarea><br>
+        <textarea name="text" id="text" class="form-control" placeholder="Enter text">{{ code.date }}</textarea><br>
+        <input type="submit" class="btn btn-success" value="Update">
         <h1> </h1>
     </form>
+    <textarea>
+        
+    </textarea>
 </div>
 {% endblock %}

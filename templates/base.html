@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
     <title>{% block title %}{% endblock %}</title>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-        <h5 class="my-0 mr-md-auto font-weight-normal">Codeye</h5>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom" style='z-index: 10; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); height: 80px;'>
+      <a class="nav_codeye_button" href="/home">Codeye</a>
         <nav class="my-2 my-md-0 mr-md-3">
-          <a class="p-2 text-dark" href="/home">Home</a>
-          <a class="p-2 text-dark" href="/about">About</a>
-          <a class="p-2 text-dark" href="/add_code">Add code</a>
+          <a class="nav_about" href="/about">About</a>
+          <button class="nav_button_share_code"><a class="nav_button_share_code_text" href="/add_code">Share code</a></button>
         </nav>
-        <a class="btn btn-outline-primary" href="#">Sign up</a>
       </div>
 </head>
 <body>
-    <h1>{% block body %}{% endblock %}</h1>
+    {% block body %}{% endblock %}
+    <footer class="nav_footer d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-top">
+      <button class="nav_footer_text_size_button d-flex flex-column flex-md-row align-items-center"><p class="mb-0 nav_footer_text_size_button_text">14px<img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt=""></p></button>
+      <button class="nav_footer_text_language d-flex flex-column flex-md-row align-items-center"><p class="mb-0 nav_footer_text_language_text">Python<img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt=""></p></button>
+    </footer>
 </body>
 </html>
