@@ -46,10 +46,7 @@ def code_update(hash):
     code = Code.query.get(hash)
     if request.method == 'POST':
         try:
-<<<<<<< HEAD
-=======
             # code.name = request.form['name']
->>>>>>> 84af0b0240d8ab80ac47006448a314657d4dd332
             code.code = request.form['code']
             ## такие же поля для добавления текста сбоку и картинок
             code.description = request.form['description']
