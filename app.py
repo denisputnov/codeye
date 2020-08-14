@@ -16,7 +16,6 @@ class Code(db.Model):
     hash = db.Column(db.String(300), nullable=False, primary_key=True)
     code = db.Column(db.Text, nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
-
     ## TODO: Add fields
 
     def __repr__(self):
