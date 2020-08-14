@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Edit your code
+{% endblock %}
+
+{% block body%}
+<div class="container mt-5">
+    <a class="btn btn-toolbar" href="/home">Home</a>
+    <h3>Code editing</h3>
+    <form method="post">
+        <input type="text" name="title" id="title" class="form-control" value="{{ code.name }}" placeholder="Enter title"><br>
+        <textarea name="intro" id="intro" class="form-control" placeholder="Enter intro">{{ code.code }}</textarea><br>
+        <textarea name="text" id="text" class="form-control" placeholder="Enter text">{{ code.date }}</textarea><br>
+        <input type="submit" class="btn btn-success" value="Update">
+        <h1> </h1>
+    </form>
+    <textarea>
+        
+    </textarea>
+</div>
+{% endblock %}
