@@ -75,12 +75,13 @@ def add_code():
     if request.method == 'POST':
         name = request.form['name']
         code = request.form['code']
+        description = request.form['description']
 
         count = len(Code.query.all()) - 1
         print(count)
         # hash = request.form["{}".format(hash_gen.hash_password(count))]
 
-        codeAdd = Code(name=name, code=code, hash=hash_gen.hash_password(count))
+        codeAdd = Code(name=name, code=code, hash=hash_gen.hash_password(count), description=description)
         # print(codeAdd.hash)
         try:
             db.session.add(codeAdd)
