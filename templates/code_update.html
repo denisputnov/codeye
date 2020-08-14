@@ -12,9 +12,7 @@ Edit your code
     <input class="button_confirm_changes" type="submit" value="Confirm changes">
     <div class="description_bar">
         <p class="code_suggested_by">Code suggested by: {{ code.name }}</p>
-        <textarea style="font-size: 14px;" class="description_bar_textarea" whap="hard">
-Description of this problem
-        </textarea>
+        <textarea style="font-size: 14px;" name="description" id="description" class="description_bar_textarea" placeholder="Description of this problem" whap="hard">{{ code.description }}</textarea>
     </div>
 </form>
 {% endblock %}

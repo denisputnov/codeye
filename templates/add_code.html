@@ -11,18 +11,18 @@ Add your code and share
     <form method="post">
         <input type="text" name="name" id="name" class="form-control" placeholder="Enter name"><br>
         <textarea name="code" id="code" cols="25" rows="8.5" class="form-control" placeholder="Enter code"></textarea><br>
-        <input type="submit" class="btn btn-success" value="Send">
+        <input type="submit" class="btn btn-success" value="Send">  
         <h1> </h1>
     </form>
 </div> -->
 <form method="post">
     <div class="code_edit_block">
-        <textarea spellcheck="false" required="true" tabindex="4" name="code" id="code" class="code_edit_code" placeholder="Write your code here">Write your code here</textarea>
+        <textarea spellcheck="false" required="true" tabindex="4" name="code" id="code" class="code_edit_code" placeholder="Write your code here"></textarea>
     </div>
     <input class="button_confirm" type="submit" value="Confirm">
     <div class="description_bar">
-        <input name="name" id="name" class="code_add_name" placeholder="Enter your name/nickname" required="false" spellcheck="false"></input>
-        <textarea name="descriprion" id="description" style="font-size: 14px;" class="description_bar_textarea" whap="hard">Description here</textarea>
+        <input name="name" id="name" class="code_add_name" placeholder="Enter your name/nickname" required="false" spellcheck="false">
+        <textarea name="description" id="description" style="font-size: 14px;" class="description_bar_textarea" placeholder="Description here" whap="hard" ></textarea>
     </div>
 </form>
 {% endblock %}
