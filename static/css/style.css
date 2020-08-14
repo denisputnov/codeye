@@ -359,7 +359,7 @@ button:focus {
     border: 0;
 }
 
-.button_suggest_a_solution {
+.button_confirm {
     position: absolute !important;
     width: 240px;
     z-index: 50 !important;
@@ -386,13 +386,13 @@ button:focus {
     bottom: 18px;
 }
 
-.button_suggest_a_solution:hover {
+.button_confirm:hover {
     background: #647aff;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.button_suggest_a_solution:focus,
-.button_suggest_a_solution:active {
+.button_confirm:focus,
+.button_confirm:active {
     outline: none !important;
     border: 0 !important;
 }
@@ -479,4 +479,25 @@ button:focus {
     margin-right: auto;
     margin-top: 12px;
     margin-bottom: 10px;
+}
+
+.code_add_name {
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    width: auto;
+    font-size: 16px;
+    color: #999999;
+    padding: 0;
+    width: 100%;
+    border: 0;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.code_add_name:focus {
+    outline: none;
+    border: 0;
 }
