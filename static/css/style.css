@@ -303,6 +303,7 @@ button:focus {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     background: white;
     min-width: 80px;
+    overflow: visible;
 }
 
 .nav_footer_text_language {
@@ -316,6 +317,7 @@ button:focus {
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     background: white;
+    z-index: 50;
 }
 
 .nav_footer_text_size_button_text {
@@ -330,7 +332,9 @@ button:focus {
 
 .nav_footer_arrow_up {
     width: 16px;
-    margin-left: 8px;
+    margin-left: 0px;
+    margin-right: 8px;
+
 }
 
 .description_bar {
@@ -669,4 +673,36 @@ button:focus {
     margin-right: auto;
     height: 100vh;
     padding-top: 30px;
+}
+
+.nav_footer_text_size_content {
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    margin-bottom: 29px;
+    box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.text_size_button {
+    text-align: left;
+    padding-left: 10px;
+    z-index: 30;
+    background: white;
+    border-bottom: 1;
+    border-color: #999999;
+    transition-duration: 200ms;
+}
+
+.text_size_button:hover {
+    background: #eeeeee;
+}
+
+.nav_footer_text_size_button_topline {
+    transition-duration: 200ms;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
