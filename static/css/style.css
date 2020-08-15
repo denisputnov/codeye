@@ -508,7 +508,7 @@ button:focus {
 .about_footer {
     display: block;
     background: #F3F3F3;
-    height: 300px;
+    height: 400px;
     z-index: 10;
 }
 
@@ -517,7 +517,7 @@ button:focus {
     width: auto;
     background: white;
     margin: auto;
-    margin-bottom: 120px;
+    margin-bottom: 200px;
     margin-top: 100px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); 
     transition-duration: 1000ms;
@@ -617,7 +617,7 @@ button:focus {
 }
 
 .about_footer_contacts {
-    padding-top: 60px;
+    padding-top: 120px;
     margin-bottom: 0;
     text-align: center;
     margin-left: auto;
