@@ -43,7 +43,7 @@ button:focus {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
+    margin-top: 5%;
 
     color: #999999;
 }
@@ -58,7 +58,7 @@ button:focus {
     text-align: center;
     padding-left: auto;
     margin-right: auto;
-    margin-top: 15vh;
+    margin-top: 10%;
     
     color: #000 !important;
 }
@@ -73,11 +73,11 @@ button:focus {
 }
 
 .main_codeye_button {
-    width: 280px;
-    height: 60px;
+    width: auto;
+    height: auto;
     background: #3f9eff;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 24px;
+    border-radius: 40px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -98,8 +98,10 @@ button:focus {
     font-size: 30px;
     line-height: 47px;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px; 
     
     color: #FFF !important; 
 } 
@@ -297,6 +299,7 @@ button:focus {
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     background: white;
+    min-width: 80px;
 }
 
 .nav_footer_text_language {
