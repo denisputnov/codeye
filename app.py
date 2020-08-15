@@ -41,7 +41,6 @@ def code_update(hash):
     if request.method == 'POST':
         try:
             code.code = request.form['code']
-            ## такие же поля для добавления текста сбоку и картинок
             code.description = request.form['description']
         except:
             return redirect('/add_code')
@@ -95,4 +94,4 @@ def add_code():
 
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0')
+    application.run(host='0.0.0.0', debug=False)
