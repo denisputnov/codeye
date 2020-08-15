@@ -5,24 +5,14 @@ Add your code and share
 {% endblock %}
 
 {% block body%}
-<!-- <div class="container mt-5">
-    <a class="btn btn-toolbar" href="http://127.0.0.1:5000/home">Home</a>
-    <h3>Code adding</h3>
-    <form method="post">
-        <input type="text" name="name" id="name" class="form-control" placeholder="Enter name"><br>
-        <textarea name="code" id="code" cols="25" rows="8.5" class="form-control" placeholder="Enter code"></textarea><br>
-        <input type="submit" class="btn btn-success" value="Send">  
-        <h1> </h1>
-    </form>
-</div> -->
 <form method="post">
     <div class="code_edit_block">
-        <textarea spellcheck="false" required="true" tabindex="4" name="code" id="code" class="code_edit_code" placeholder="Write your code here"></textarea>
+        <textarea spellcheck="false" required="true" tabindex="4" name="code" id="code" class="code_edit_code" wrap="off" placeholder="Write your code here"></textarea>
     </div>
     <input class="button_confirm" type="submit" value="Confirm">
     <div class="description_bar">
         <input name="name" id="name" class="code_add_name" placeholder="Enter your name/nickname" required="false" spellcheck="false">
-        <textarea name="description" id="description" style="font-size: 14px;" class="description_bar_textarea" placeholder="Description here" whap="hard" ></textarea>
+        <textarea name="description" id="description" style="font-size: 14px;" class="description_bar_textarea" placeholder="Description here" wrap="hard" ></textarea>
     </div>
 </form>
 {% endblock %}
