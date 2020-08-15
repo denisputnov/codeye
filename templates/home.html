@@ -17,7 +17,7 @@
     <title>Codeye</title>
 </head>
 <body>
-    <div class="main_ellipse">
+    <div class="main_mobile display-none" id="main_mobile">
         <h1 class="main_codeye">codeye</h1>
         <p class="main_codeye_text_after">
             - share your code by free<br>
@@ -28,10 +28,51 @@
         <p class="main_about_button_text"><a href="/about" class="main_about_animation_class">About</a></p>
         <p class="main_copyright">Copyright © 2020<br>Denis Putnov & Cherednichenko Daniel<br>All rights reserved</p>
     </div>
-    <div class="main_line_one"><img class="main_lines" src="{{ url_for('static', filename='images/line1-s.png') }}"></img></div>
-    <div class="main_draw">
-        <div class="main_sun"><p class="main_nonono"><img src="{{ url_for('static', filename='images/nonono.png') }}" alt=""></p></div>
+    <div class="main_ellipse" id="main_ellipse">
+        <h1 class="main_codeye">codeye</h1>
+        <p class="main_codeye_text_after">
+            - share your code by free<br>
+            - ask anybody for some help<br>
+            - study and enjoy
+        </p>
+        <button class="main_codeye_button align-middle"><a href="/add_code" class="main_codeye_button_text">Share Code</a></button>
+        <p class="main_about_button_text"><a href="/about" class="main_about_animation_class">About</a></p>
+        <p class="main_copyright">Copyright © 2020<br>Denis Putnov & Cherednichenko Daniel<br>All rights reserved</p>
     </div>
-    <div class="main_line_two"><img class="main_lines" src="{{ url_for('static', filename='images/line2-s.png') }}"></img></div>
+    <div id="line1" class="main_line_one"><img class="main_lines" src="{{ url_for('static', filename='images/line1-s.png') }}"></img></div>
+    <div class="main_draw" id="sun">
+        <div class="main_sun"><img class="main_nonono" src="{{ url_for('static', filename='images/nonono.png') }}" alt=""></div>
+    </div>
+    <div id="line2" class="main_line_two"><img class="main_lines" src="{{ url_for('static', filename='images/line2-s.png') }}"></img></div>
+    <script>
+async function controllElementsView() {
+    let timer = setInterval(function toggleSun() {
+        let width = window.innerWidth;
+
+        if(width < 1280) {
+            sun.classList.add('display-none');
+            line1.classList.add('display-none');
+            line2.classList.add('display-none');
+            main_ellipse.classList.add('display-none');
+            main_mobile.classList.remove('display-none');
+        } else {
+            sun.classList.remove('display-none');
+            line1.classList.remove('display-none');
+            line2.classList.remove('display-none');
+            main_ellipse.classList.remove('display-none');
+            main_mobile.classList.add('display-none');
+        }
+    }, 300);
+};
+
+let sun = document.getElementById('sun');
+let line1 = document.getElementById('line1');
+let line2 = document.getElementById('line2'); 
+let main_ellipse = document.getElementById('main_ellipse');
+let main_mobile = document.getElementById('main_mobile');
+
+controllElementsView()
+
+    </script>
 </body>
 </html>
