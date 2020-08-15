@@ -26,10 +26,45 @@
 <body>
     {% block body %}{% endblock %}
     <footer class="nav_footer d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-top">
-      <!-- <button class="nav_footer_text_size_button d-flex flex-column flex-md-row align-items-center">
-        <p class="mb-0 nav_footer_text_size_button_text">14px<img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt=""></p>
+      <button onclick="show_font_size_content_block()" id="font_size_button" class="nav_footer_text_size_button d-flex flex-column flex-md-row align-items-center">
+        <p id="font_size_now" class="mb-0 nav_footer_text_size_button_text">14px</p><img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt="">
       </button>
-      <button class="nav_footer_text_language d-flex flex-column flex-md-row align-items-center"><p class="mb-0 nav_footer_text_language_text">Python<img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt=""></p></button> -->
+      <div id="font_size_content_block" class="nav_footer_text_size_content" style="display: none;">
+        <button onclick="change_font_size(10)" id="10px" class="text_size_button" style="border-top-left-radius: 8px;border-top-right-radius: 8px;">10px</button>
+        <button onclick="change_font_size(12)" id="12px" class="text_size_button">12px</button>
+        <button onclick="change_font_size(14)" id="14px" class="text_size_button">14px</button>
+        <button onclick="change_font_size(16)" id="16px" class="text_size_button">16px</button>
+        <button onclick="change_font_size(18)" id="18px" class="text_size_button">18px</button>
+        <button onclick="change_font_size(20)" id="20px" class="text_size_button">20px</button>
+        <button onclick="change_font_size(24)" id="24px" class="text_size_button">24px</button>
+        <button onclick="change_font_size(30)" id="30px" class="text_size_button">30px</button>
+        <button onclick="change_font_size(36)" id="36px" class="text_size_button">36px</button>
+      </div>
+      <button class="nav_footer_text_language d-flex flex-column flex-md-row align-items-center"><p class="mb-0 nav_footer_text_language_text">Python</p><img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt=""></button>
     </footer>
+<script type="text/javascript">
+let font_size_button = document.getElementById('font_size_button');
+let font_size_content_block = document.getElementById('font_size_content_block');
+let code_textarea = document.getElementById('code_textarea');
+
+function change_font_size(size) {
+  let element = document.getElementById('font_size_now');
+  font_size_button.classList.toggle('nav_footer_text_size_button_topline');
+  element.textContent = size + "px";
+  font_size_content_block.style.display = "none";
+  code_textarea.style.fontSize = size + "px";
+ };
+
+function show_font_size_content_block() {
+  console.log(font_size_content_block.style.display);
+  if(font_size_content_block.style.display == "none") {
+    font_size_button.classList.toggle('nav_footer_text_size_button_topline');
+    font_size_content_block.style.display = "flex";
+  } else {
+    font_size_button.classList.toggle('nav_footer_text_size_button_topline');
+    font_size_content_block.style.display = "none";
+  }
+};
+</script>
 </body>
 </html>
