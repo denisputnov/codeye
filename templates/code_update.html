@@ -7,7 +7,7 @@ Edit your code
 {% block body%}
 <form method="post">
     <div class="code_edit_block">
-        <textarea spellcheck="false" required=True tabindex=4 name="code" id="code" class="code_edit_code" placeholder="Write your code here">{{ code.code }}</textarea>
+        <textarea id="code_textarea" spellcheck="false" required=True tabindex=4 name="code" id="code" class="code_edit_code" placeholder="Write your code here">{{ code.code }}</textarea>
     </div>
     <input class="button_confirm_changes" type="submit" value="Confirm changes">
     <div class="description_bar">

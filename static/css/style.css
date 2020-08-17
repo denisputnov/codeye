@@ -569,7 +569,7 @@ button:focus {
     margin-left: auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);    
     transition-duration: 1s;
-    
+    pointer-events: none;
 }
 
 .about_personal_dev_card:hover .about_card_photo {
