@@ -5,14 +5,16 @@ Add your code and share
 {% endblock %}
 
 {% block body%}
-<form method="post">
+<form action="/add_code" method="post" enctype="multipart/form-data">
     <div class="code_edit_block">
-        <textarea id="code_textarea" style="font-size: 14px" spellcheck="false" required="true" tabindex="4" name="code" id="code" class="code_edit_code" wrap="off" placeholder="Write your code here"></textarea>
+        <textarea name="code" id="code" style="font-size: 14px" spellcheck="false" required="true" tabindex="4" class="code_edit_code" wrap="off" placeholder="Write your code here"></textarea>
     </div>
     <input class="button_confirm" type="submit" value="Confirm">
     <div class="description_bar">
         <input name="name" id="name" class="code_add_name" placeholder="Enter your name/nickname" required="false" spellcheck="false">
-        <textarea name="description" id="description" style="font-size: 14px;" class="description_bar_textarea" placeholder="Description here" wrap="hard" ></textarea>
+        <p><input type="file" name="file" accept="{{ ALLOWED_EXTENSIONS }}" multiple=""></p>
+         <!--<input type="submit" value="Отправить" multiple>
+        <textarea name="description" id="description" style="font-size: 14px;" class="description_bar_textarea" placeholder="Description here" wrap="hard" ></textarea>-->
     </div>
 </form>
 {% endblock %}

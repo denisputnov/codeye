@@ -1,3 +1,4 @@
+import base64
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -8,20 +9,32 @@ application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///code.db'
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(application)
 
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
 
 class Code(db.Model):
-    # id = db.Column(db.Integer)
+    __tablename__ = 'main'
+    id = db.Column(db.Integer, nullable=False, autoincrement=True)
     name = db.Column(db.String(100), nullable=False)
     hash = db.Column(db.String(300), nullable=False, primary_key=True)
     code = db.Column(db.Text, nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
-    code_image = db.Column(db.BLOB, nullable=True)
     description = db.Column(db.Text, nullable=True)
-
-    ## TODO: Add fields
+    language = db.Column(db.String(50), nullable=False)
 
     def __repr__(self):
         return '<Code %r>' % self.hash
+
+
+class Images(db.Model):
+    __tablename__ = 'images'
+    img_id = db.Column(db.Integer, nullable=False, autoincrement=True, primary_key=True)
+    depend_id = db.Column(db.Integer, db.ForeignKey('main.id'))
+    image = db.Column(db.BLOB, nullable=True)
+    # добавить колонку делитед для того чтобы определять будет ли пикча отображаться после фильтеред или нет
+
+    def __repr__(self):
+        return '<Images %r>' % self.depend_id
 
 
 @application.route('/')
@@ -37,15 +50,16 @@ def show_about_page():
 
 @application.route('/code/<string:hash>/update', methods=['POST', 'GET'])
 def code_update(hash):
+    listOfImages = []
     code = Code.query.get(hash)
+    image = Images.query.filter_by(depend_id=code.id).all()
     if request.method == 'POST':
         try:
             code.code = request.form['code']
-            code.description = request.form['description']
+            #code.description = request.form['description'] отключил из-за того что нужно верстать и определяться как читать файлы и картинки
+            #image.image = request.form['image']
         except:
             return redirect('/add_code')
-            # render_template("add_code.html")
-            # redirect('/code/{}/add_code')
 
         try:
             db.session.commit()
@@ -54,7 +68,11 @@ def code_update(hash):
             return "Code editing error."
 
     else:
-        return render_template("code_update.html", code=code)
+        if image[0].image != b'':
+            for elem in image:
+                encoded_image = base64.b64encode(elem.image).decode()
+                listOfImages.append("data:image/png;base64,{encoded_image}".format(encoded_image=encoded_image))
+        return render_template("code_update.html", code=code, code_pic=listOfImages, lenList=len(listOfImages))
 
 
 """"@application.route('/code/<string:hash>/delete', methods=['POST', 'GET'])
@@ -74,24 +92,31 @@ def add_code():
     if request.method == 'POST':
         name = request.form['name']
         code = request.form['code']
-        description = request.form['description']
+        # description = request.form['description']
+        images = request.files.getlist('file')
 
         count = len(Code.query.all()) - 1
-        print(count)
-        # hash = request.form["{}".format(hash_gen.hash_password(count))]
+        hash = hash_gen.hash_password(count)
+        text = "dont forget to turn on"
 
-        codeAdd = Code(name=name, code=code, hash=hash_gen.hash_password(count), description=description)
-        # print(codeAdd.hash)
+        codeAdd = Code(id=count + 1, name=name, code=code, hash=hash, description=text)
+        # codeAdd = Code(name=name, code=code, hash=hash, description=description)
         try:
+            for image in images:
+                imageAdd = Images(depend_id=codeAdd.id, image=image.read())
+                count += 1
+                db.session.add(imageAdd)
+                db.session.commit()
+
             db.session.add(codeAdd)
             db.session.commit()
+
             return redirect('/code/{}/update'.format(codeAdd.hash))
         except:
             return "Code adding error."
-        # return redirect(f'/{id}')
     else:
         return render_template('add_code.html')
 
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0', debug=False)
+    application.run(debug=True)
