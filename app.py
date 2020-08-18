@@ -99,13 +99,15 @@ def add_code():
         hash = hash_gen.hash_password(count)
         text = "dont forget to turn on"
 
-        codeAdd = Code(id=count + 1, name=name, code=code, hash=hash, description=text)
+        codeAdd = Code(id=count + 1, name=name, code=code, hash=hash, description=text, language="Python")
         # codeAdd = Code(name=name, code=code, hash=hash, description=description)
         try:
             for image in images:
                 imageAdd = Images(depend_id=codeAdd.id, image=image.read())
+                print("#", end="")
                 count += 1
                 db.session.add(imageAdd)
+                print("#", end="")
                 db.session.commit()
 
             db.session.add(codeAdd)
