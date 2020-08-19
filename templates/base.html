@@ -1,70 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='/site.webmanifest') }}">
-    <link rel="mask-icon" href="{{ url_for('static', filename='/safari-pinned-tab.svg') }}" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+  <!-- EXTRA -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- FAVICON -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='/site.webmanifest') }}">
+  <link rel="mask-icon" href="{{ url_for('static', filename='/safari-pinned-tab.svg') }}" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <!-- CODE EDITOR -->
+  <script src="{{ url_for('static', filename='codemirror/lib/codemirror.js') }}"></script>
+  <script scr="{{ url_for('static', filename='codemirror/addon/edit/closetag.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='codemirror/lib/codemirror.css') }}"/>
 
-    <title>{% block title %}{% endblock %}</title>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom" style='z-index: 10; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); height: 80px;'>
-      <a class="nav_codeye_button" href="/home">Codeye</a>
-        <nav class="my-2 my-md-0 mr-md-3">
-          <a class="nav_about" href="/about">About</a>
-          <button class="nav_button_share_code"><a id="test_el" class="nav_button_share_code_text" href="/add_code">Share code</a></button>
-        </nav>
-      </div>
+  <link rel="stylesheet" href="{{ url_for('static', filename='codemirror/theme/3024-day.css') }}"/>
+
+  <script src="{{ url_for('static', filename='codemirror/mode/css/css.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/dart/dart.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/go/go.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/javascript/javascript.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/pascal/pascal.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/perl/perl.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/php/php.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/python/python.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/ruby/ruby.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/swift/swift.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/xml/xml.js') }}"></script>
+  
+
+
+  <title>{% block title %}{% endblock %}</title>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom" style='z-index: 10; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); height: 80px;'>
+    <a class="nav_codeye_button" href="/home">Codeye</a>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="nav_about" href="/about">About</a>
+        <button class="nav_button_share_code"><a id="test_el" class="nav_button_share_code_text" href="/add_code">Share code</a></button>
+      </nav>
+    </div>
 </head>
 <body>
     {% block body %}{% endblock %}
     <footer class="nav_footer d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-top">
-      <button onclick="show_font_size_content_block()" id="font_size_button" class="nav_footer_text_size_button d-flex flex-column flex-md-row align-items-center">
+      <!-- <button onclick="show_font_size_content_block()" id="font_size_button" class="nav_footer_text_size_button d-flex flex-column flex-md-row align-items-center">
         <p id="font_size_now" class="mb-0 nav_footer_text_size_button_text">14px</p><img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt="">
-      </button>
-      <div id="font_size_content_block" class="nav_footer_text_size_content" style="display: none;">
-        <button onclick="change_font_size(10)" id="10px" class="text_size_button" style="border-top-left-radius: 8px;border-top-right-radius: 8px;">10px</button>
-        <button onclick="change_font_size(12)" id="12px" class="text_size_button">12px</button>
-        <button onclick="change_font_size(14)" id="14px" class="text_size_button">14px</button>
-        <button onclick="change_font_size(16)" id="16px" class="text_size_button">16px</button>
-        <button onclick="change_font_size(18)" id="18px" class="text_size_button">18px</button>
-        <button onclick="change_font_size(20)" id="20px" class="text_size_button">20px</button>
-        <button onclick="change_font_size(24)" id="24px" class="text_size_button">24px</button>
-        <button onclick="change_font_size(30)" id="30px" class="text_size_button">30px</button>
-        <button onclick="change_font_size(36)" id="36px" class="text_size_button">36px</button>
+      </button> -->
+      
+      <button onclick="show_lang_content_block()" id="nav_lang_button" class="nav_footer_text_language d-flex flex-column flex-md-row align-items-center"><p name="now_lang" id="now_lang" class="mb-0 nav_footer_text_language_text">Python</p><img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt=""></button>
+      <div id="lang_content_block" class="nav_footer_lang_content" style="display: none;">
+        <button onclick="change_lang('CSS')" id="lang_button" class="lang_button" style="border-top-left-radius: 8px;border-top-right-radius: 8px;">CSS</button>
+        <button onclick="change_lang('Dart')" class="lang_button">Dart</button>
+        <button onclick="change_lang('GO')" class="lang_button">GO</button>
+        <button onclick="change_lang('JavaScript')" class="lang_button">JavaScript</button>
+        <button onclick="change_lang('Pascal')" class="lang_button">Pascal</button>
+        <button onclick="change_lang('Perl')" class="lang_button">Perl</button>
+        <button onclick="change_lang('PHP')" class="lang_button">PHP</button>
+        <button onclick="change_lang('Python')" class="lang_button">Python</button>
+        <button onclick="change_lang('Ruby')" class="lang_button">Ruby</button>
+        <button onclick="change_lang('Swift')" class="lang_button">Swift</button>
+        <button onclick="change_lang('XML')" class="lang_button">XML\HTML</button>
       </div>
-      <!-- <button class="nav_footer_text_language d-flex flex-column flex-md-row align-items-center"><p class="mb-0 nav_footer_text_language_text">Python</p><img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt=""></button> -->
     </footer>
 <script type="text/javascript">
-let font_size_button = document.getElementById('font_size_button');
-let font_size_content_block = document.getElementById('font_size_content_block');
+let nav_lang_button = document.getElementById('nav_lang_button');
+let lang_content_block = document.getElementById('lang_content_block');
 let code_textarea = document.getElementById('code_textarea');
+let now_lang = document.getElementById('now_lang');
 
-function change_font_size(size) {
-  let element = document.getElementById('font_size_now');
-  font_size_button.classList.toggle('nav_footer_text_size_button_topline');
-  element.textContent = size + "px";
-  font_size_content_block.style.display = "none";
-  code_textarea.style.fontSize = size + "px";
+let editor = CodeMirror.fromTextArea(code_textarea, {
+    mode: "python",
+    theme: "3024-day",
+    lineNumbers: true,
+    autoCloseTags: true, 
+});
+
+editor.setSize("100%", "100%");
+
+async function saveCode() {
+  let timer = setInterval(function save() {
+    code_textarea.value = editor.getValue();
+  }, 700);
+};
+
+saveCode();
+
+// change_lang();
+
+function change_lang(lang) {
+  nav_lang_button.classList.toggle('nav_footer_lang_button_topline');
+  lang_content_block.style.display = "none";
+  now_lang.textContent = lang;
+  editor.setOption("mode", lang.toLowerCase())
  };
 
-function show_font_size_content_block() {
-  console.log(font_size_content_block.style.display);
-  if(font_size_content_block.style.display == "none") {
-    font_size_button.classList.toggle('nav_footer_text_size_button_topline');
-    font_size_content_block.style.display = "flex";
+function show_lang_content_block() {
+  if(lang_content_block.style.display == "none") {
+    nav_lang_button.classList.toggle('nav_footer_lang_button_topline');
+    lang_content_block.style.display = "flex";
   } else {
-    font_size_button.classList.toggle('nav_footer_text_size_button_topline');
-    font_size_content_block.style.display = "none";
+    nav_lang_button.classList.toggle('nav_footer_lang_button_topline');
+    lang_content_block.style.display = "none";
   }
 };
+
 </script>
 </body>
 </html>
