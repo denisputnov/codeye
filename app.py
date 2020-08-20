@@ -72,7 +72,7 @@ def code_update(hash):
             for elem in image:
                 encoded_image = base64.b64encode(elem.image).decode()
                 listOfImages.append("data:image/png;base64,{encoded_image}".format(encoded_image=encoded_image))
-        return render_template("code_update.html", code=code, code_pic=listOfImages, lenList=len(listOfImages))
+        return render_template("code_update.html", code=code, code_pic=enumerate(listOfImages), lenList=len(listOfImages))
 
 
 """"@application.route('/code/<string:hash>/delete', methods=['POST', 'GET'])
@@ -97,7 +97,7 @@ def add_code():
 
         count = len(Code.query.all()) - 1
         hash = hash_gen.hash_password(count)
-        text = "dont forget to turn on"
+        text = request.form['description']
 
         codeAdd = Code(id=count + 1, name=name, code=code, hash=hash, description=text, language="Python")
         # codeAdd = Code(name=name, code=code, hash=hash, description=description)

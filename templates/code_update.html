@@ -5,21 +5,19 @@ Edit your code
 {% endblock %}
 
 {% block body%}
-<form method="post">
+<form method="post" style="overflow: hidden;">
     <div class="code_edit_block">
         <textarea id="code_textarea" spellcheck="false" required=True tabindex=4 name="code" id="code" class="code_edit_code" placeholder="Write your code here">{{ code.code }}</textarea>
     </div>
     <input class="button_confirm_changes" type="submit" value="Confirm changes">
-    <div class="description_bar">
+    <div id="description_bar" class="description_bar" style="overflow-y: unset">
         <p class="code_suggested_by">Code suggested by: {{ code.name }}</p>
-        {% if lenList > 0 %}
-            {% for elem in code_pic %}
-                <p><img src="{{ elem }}" name="image" id="image" width="320" height="180" alt="No File"></p>
+        {% if lenList > 0 and lenList < 4 %}
+            {% for i, elem in code_pic %}
+                <img src="{{ elem }}" name="image" id="image{{i}}" class="update_code_image" alt="No File: somethink wents wrong">
             {% endfor %}
         {% endif %}
-       <!--
-
         <textarea style="font-size: 14px;" name="description" id="description" class="description_bar_textarea" placeholder="Description of this problem" whap="hard">{{ code.description }}</textarea>
-    --></div>
+    </div>
 </form>
 {% endblock %}
