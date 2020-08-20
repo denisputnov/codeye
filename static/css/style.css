@@ -340,6 +340,8 @@ button:focus {
 }
 
 .description_bar {
+    overflow: auto;
+    overflow-y: scroll;
     z-index: 5;
     min-width: 400px;
     box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.2);
@@ -348,11 +350,11 @@ button:focus {
     height: auto;
     bottom: 36px;
     top: 80px;
-    overflow: hidden !important;
 }
 
 .description_bar_textarea {
     overflow: auto;
+    overflow-y: auto;
     z-index: 6;
     width: 95%;
     background: white;
@@ -360,9 +362,9 @@ button:focus {
     border: 0;
     display: block;
     margin: auto;
-    margin-top: 0;
+    margin-top: 20px;
     resize: none;
-    min-height: 85vh;
+    min-height: 300vh;
     bottom: 0;
 }
 
@@ -712,4 +714,61 @@ button:focus {
     transition-duration: 200ms;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+.input_file_button {  
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -100;
+}
+
+.input_file_label {
+    z-index: 10;
+    width: 100px;
+    height: 30px;
+    background: #3f9eff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    transition-duration: 300ms;
+}  
+
+.input_file_label:hover {
+    z-index: 10;
+    background: #647aff;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.input_file_label_text {
+    display: block;
+    font-family: Consolas;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 6px;
+    margin-bottom: auto;
+    
+    color: white;
+}
+
+.update_code_image {
+    display: block;
+    height: auto;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 380px;
+    margin-bottom: 10px;
+    z-index: 10;
+
+    transition-duration: 1000ms;
 }
