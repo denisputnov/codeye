@@ -14,10 +14,20 @@ Edit your code
         <p class="code_suggested_by">Code suggested by: {{ code.name }}</p>
         {% if lenList > 0 and lenList < 4 %}
             {% for i, elem in code_pic %}
-                <img src="{{ elem }}" name="image" id="image{{i}}" class="update_code_image" alt="No File: somethink wents wrong">
+                <img src="{{ elem }}" name="image" id="image{{i}}" class="update_code_image" alt="No File: something wents wrong">
             {% endfor %}
         {% endif %}
         <textarea style="font-size: 14px;" name="description" id="description" class="description_bar_textarea" placeholder="Description of this problem" whap="hard">{{ code.description }}</textarea>
+        <textarea name="lang" id="hidden_lang" class="hidden_lang"></textarea>
     </div>
 </form>
+    <textarea id="take_lang" class="take_lang">{{ code.language }}</textarea>
+    <script>
+        let take_lang = document.getElementById('take_lang');
+        //let now_lang_ = document.getElementById('now_lang');
+        function changeLang(){
+            now_lang.textContent = take_lang.textContent;
+        };
+        changeLang();
+    </script>
 {% endblock %}
