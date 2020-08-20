@@ -90,12 +90,11 @@ async function saveCode() {
 
 saveCode();
 
-// change_lang();
-
 function change_lang(lang) {
   nav_lang_button.classList.toggle('nav_footer_lang_button_topline');
   lang_content_block.style.display = "none";
   now_lang.textContent = lang;
+  hidden_lang.textContent = lang;
   editor.setOption("mode", lang.toLowerCase())
  };
 
@@ -108,13 +107,15 @@ function show_lang_content_block() {
     lang_content_block.style.display = "none";
   }
 };
-async function saveLangData() {
-    let savingTimer = setInterval(function save() {
-    hidden_lang.value = now_lang.textContent;
-  }, 700);
-};
 
-saveLangData();
+let take_lang = document.getElementById('take_lang');
+
+async function take_land_db() {
+  now_lang.textContent = take_lang.textContent;
+  editor.setOption("mode", (take_lang.textContent).toLowerCase())
+};
+take_land_db();
+
 </script>
 </body>
 </html>

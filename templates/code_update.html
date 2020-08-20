@@ -21,13 +21,5 @@ Edit your code
         <textarea name="lang" id="hidden_lang" class="hidden_lang"></textarea>
     </div>
 </form>
-    <textarea id="take_lang" class="take_lang">{{ code.language }}</textarea>
-    <script>
-        let take_lang = document.getElementById('take_lang');
-        //let now_lang_ = document.getElementById('now_lang');
-        function changeLang(){
-            now_lang.textContent = take_lang.textContent;
-        };
-        changeLang();
-    </script>
+<textarea id="take_lang" class="take_lang">{{ code.language }}</textarea>
 {% endblock %}
