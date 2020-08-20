@@ -50,7 +50,7 @@
       <!-- <button onclick="show_font_size_content_block()" id="font_size_button" class="nav_footer_text_size_button d-flex flex-column flex-md-row align-items-center">
         <p id="font_size_now" class="mb-0 nav_footer_text_size_button_text">14px</p><img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt="">
       </button> -->
-      
+
       <button onclick="show_lang_content_block()" id="nav_lang_button" class="nav_footer_text_language d-flex flex-column flex-md-row align-items-center"><p name="now_lang" id="now_lang" class="mb-0 nav_footer_text_language_text">Python</p><img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt=""></button>
       <div id="lang_content_block" class="nav_footer_lang_content" style="display: none;">
         <button onclick="change_lang('CSS')" id="lang_button" class="lang_button" style="border-top-left-radius: 8px;border-top-right-radius: 8px;">CSS</button>
@@ -71,6 +71,7 @@ let nav_lang_button = document.getElementById('nav_lang_button');
 let lang_content_block = document.getElementById('lang_content_block');
 let code_textarea = document.getElementById('code_textarea');
 let now_lang = document.getElementById('now_lang');
+let hidden_lang = document.getElementById('hidden_lang');
 
 let editor = CodeMirror.fromTextArea(code_textarea, {
     mode: "python",
@@ -107,7 +108,13 @@ function show_lang_content_block() {
     lang_content_block.style.display = "none";
   }
 };
+async function saveLangData() {
+    let savingTimer = setInterval(function save() {
+    hidden_lang.value = now_lang.textContent;
+  }, 700);
+};
 
+saveLangData();
 </script>
 </body>
 </html>

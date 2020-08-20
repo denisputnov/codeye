@@ -56,7 +56,8 @@ def code_update(hash):
     if request.method == 'POST':
         try:
             code.code = request.form['code']
-            #code.description = request.form['description'] отключил из-за того что нужно верстать и определяться как читать файлы и картинки
+            code.description = request.form['description']
+            code.language = request.form['lang']
             #image.image = request.form['image']
         except:
             return redirect('/add_code')
@@ -92,22 +93,20 @@ def add_code():
     if request.method == 'POST':
         name = request.form['name']
         code = request.form['code']
-        # description = request.form['description']
+        description = request.form['description']
         images = request.files.getlist('file')
+        lang = request.form['lang']
 
         count = len(Code.query.all()) - 1
         hash = hash_gen.hash_password(count)
-        text = request.form['description']
+        #text = request.form['description']
 
-        codeAdd = Code(id=count + 1, name=name, code=code, hash=hash, description=text, language="Python")
-        # codeAdd = Code(name=name, code=code, hash=hash, description=description)
+        codeAdd = Code(id=count + 1, name=name, code=code, hash=hash, description=description, language=lang)
         try:
             for image in images:
                 imageAdd = Images(depend_id=codeAdd.id, image=image.read())
-                print("#", end="")
                 count += 1
                 db.session.add(imageAdd)
-                print("#", end="")
                 db.session.commit()
 
             db.session.add(codeAdd)

@@ -772,3 +772,17 @@ button:focus {
 
     transition-duration: 1000ms;
 }
+
+.hidden_lang{
+    display: none;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+}
+
+.take_lang{
+    display: none;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+}
