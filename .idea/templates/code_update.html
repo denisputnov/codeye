@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Edit your code
+{% endblock %}
+
+{% block body%}
+<form method="post" style="overflow: hidden;">
+    <div class="code_edit_block">
+        <textarea id="code_textarea" spellcheck="false" required=True tabindex=4 name="code" id="code" class="code_edit_code" placeholder="Write your code here">{{ code.code }}</textarea>
+    </div>
+    <input class="button_confirm_changes" type="submit" value="Confirm changes">
+    <div id="description_bar" class="description_bar" style="overflow-y: unset">
+        <p class="code_suggested_by">Code suggested by: {{ code.name }}</p>
+        {% if lenList > 0 and lenList < 4 %}
+            {% for i, elem in code_pic %}
+                <img src="{{ elem }}" name="image" id="image{{i}}" class="update_code_image" alt="No File: something wents wrong">
+            {% endfor %}
+        {% endif %}
+        <textarea style="font-size: 14px;" name="description" id="description" class="description_bar_textarea" placeholder="Description of this problem" whap="hard">{{ code.description }}</textarea>
+        <textarea name="lang" id="hidden_lang" class="hidden_lang"></textarea>
+    </div>
+</form>
+<textarea id="take_lang" class="take_lang">{{ code.language }}</textarea>
+{% endblock %}

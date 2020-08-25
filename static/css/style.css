@@ -786,3 +786,69 @@ button:focus {
     height: 0.1px;
     position: absolute;
 }
+
+@media (max-width: 768px){
+    .description_bar{
+        min-width: 768px;
+        height: 300px;
+        right: auto;
+        margin-right: auto;
+    }
+
+    .code_edit_block{
+        position: bottom;
+        height: 100px;
+        top: 408px;
+        right: auto;
+        max-width: 768px;
+    }
+
+    .button_confirm{
+        position: relative!important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        top: 285px;
+    }
+}
+
+@media (max-width: 500px){
+    .description_bar{
+        min-width: 100%;
+        height: 200px;
+        margin-right: auto;
+    }
+
+    .code_edit_block{
+        position: bottom;
+        height: 70px;
+        top: 315px;
+        right: auto;
+        max-width: 100%;
+    }
+
+    .button_confirm{
+        position: relative;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        top: 185px;
+    }
+    .nav_button_share_code{
+        position: relative;
+        left: 60%;
+        bottom: 45px;
+    }
+    .nav_about{
+        display: none;
+    }
+
+    .nav_codeye_button{
+        position: relative;
+        font-size: 40px;
+    }
+
+    .nav_footer{
+        height: 50px;
+    }
+}

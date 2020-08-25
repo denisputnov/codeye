@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- EXTRA -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- FAVICON -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='/site.webmanifest') }}">
+  <link rel="mask-icon" href="{{ url_for('static', filename='/safari-pinned-tab.svg') }}" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <!-- CODE EDITOR -->
+  <script src="{{ url_for('static', filename='codemirror/lib/codemirror.js') }}"></script>
+  <script scr="{{ url_for('static', filename='codemirror/addon/edit/closetag.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='codemirror/lib/codemirror.css') }}"/>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='codemirror/theme/3024-day.css') }}"/>
+
+  <script src="{{ url_for('static', filename='codemirror/mode/css/css.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/dart/dart.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/go/go.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/javascript/javascript.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/pascal/pascal.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/perl/perl.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/php/php.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/python/python.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/ruby/ruby.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/swift/swift.js') }}"></script>
+  <script src="{{ url_for('static', filename='codemirror/mode/xml/xml.js') }}"></script>
+  
+
+
+  <title>{% block title %}{% endblock %}</title>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom" style='z-index: 10; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); height: 80px;'>
+    <a class="nav_codeye_button" href="/home">Codeye</a>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="nav_about" href="/about">About</a>
+        <button class="nav_button_share_code"><a id="test_el" class="nav_button_share_code_text" href="/add_code">Share code</a></button>
+      </nav>
+    </div>
+</head>
+<body>
+    {% block body %}{% endblock %}
+    <footer class="nav_footer d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-top">
+      <!-- <button onclick="show_font_size_content_block()" id="font_size_button" class="nav_footer_text_size_button d-flex flex-column flex-md-row align-items-center">
+        <p id="font_size_now" class="mb-0 nav_footer_text_size_button_text">14px</p><img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt="">
+      </button> -->
+
+      <button onclick="show_lang_content_block()" id="nav_lang_button" class="nav_footer_text_language d-flex flex-column flex-md-row align-items-center"><p name="now_lang" id="now_lang" class="mb-0 nav_footer_text_language_text">Python</p><img class="nav_footer_arrow_up" src="{{ url_for('static', filename='images/arrow_up.svg') }}" alt=""></button>
+      <div id="lang_content_block" class="nav_footer_lang_content" style="display: none;">
+        <button onclick="change_lang('CSS')" id="lang_button" class="lang_button" style="border-top-left-radius: 8px;border-top-right-radius: 8px;">CSS</button>
+        <button onclick="change_lang('Dart')" class="lang_button">Dart</button>
+        <button onclick="change_lang('GO')" class="lang_button">GO</button>
+        <button onclick="change_lang('JavaScript')" class="lang_button">JavaScript</button>
+        <button onclick="change_lang('Pascal')" class="lang_button">Pascal</button>
+        <button onclick="change_lang('Perl')" class="lang_button">Perl</button>
+        <button onclick="change_lang('PHP')" class="lang_button">PHP</button>
+        <button onclick="change_lang('Python')" class="lang_button">Python</button>
+        <button onclick="change_lang('Ruby')" class="lang_button">Ruby</button>
+        <button onclick="change_lang('Swift')" class="lang_button">Swift</button>
+        <button onclick="change_lang('XML')" class="lang_button">XML\HTML</button>
+      </div>
+    </footer>
+<script type="text/javascript">
+let nav_lang_button = document.getElementById('nav_lang_button');
+let lang_content_block = document.getElementById('lang_content_block');
+let code_textarea = document.getElementById('code_textarea');
+let now_lang = document.getElementById('now_lang');
+let hidden_lang = document.getElementById('hidden_lang');
+
+let editor = CodeMirror.fromTextArea(code_textarea, {
+    mode: "python",
+    theme: "3024-day",
+    lineNumbers: true,
+    autoCloseTags: true, 
+});
+
+editor.setSize("100%", "100%");
+
+async function saveCode() {
+  let timer = setInterval(function save() {
+    code_textarea.value = editor.getValue();
+  }, 700);
+};
+
+saveCode();
+
+function change_lang(lang) {
+  nav_lang_button.classList.toggle('nav_footer_lang_button_topline');
+  lang_content_block.style.display = "none";
+  now_lang.textContent = lang;
+  hidden_lang.textContent = lang;
+  editor.setOption("mode", lang.toLowerCase())
+ };
+
+function show_lang_content_block() {
+  if(lang_content_block.style.display == "none") {
+    nav_lang_button.classList.toggle('nav_footer_lang_button_topline');
+    lang_content_block.style.display = "flex";
+  } else {
+    nav_lang_button.classList.toggle('nav_footer_lang_button_topline');
+    lang_content_block.style.display = "none";
+  }
+};
+
+let take_lang = document.getElementById('take_lang');
+
+async function take_land_db() {
+  now_lang.textContent = take_lang.textContent;
+  editor.setOption("mode", (take_lang.textContent).toLowerCase())
+};
+take_land_db();
+
+</script>
+</body>
+</html>
