@@ -807,20 +807,18 @@ button:focus {
     .button_confirm{
         position: relative;
         left: 20%;
-        bottom: 52%;
+        bottom: 51%;
     }
     .nav_footer{
         height: 40px;
     }
     .nav_about{
-        position: relative;
-        bottom: 12px;
-        right:10px;
+        display: none;
     }
     .nav_button_share_code{
         position: relative;
         bottom: 40px;
-        left: 15px;
+        left: 70px;
     }
     .nav_codeye_button{
         position: relative;
