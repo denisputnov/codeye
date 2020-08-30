@@ -892,7 +892,8 @@ button:focus {
         padding-left: 10px;
         padding-right: 10px;
     }
-    .button_confirm_changes {
+    .button_confirm_changes,
+    .button_confirm {
         max-width: 130px;
         font-size: 4vw;
         bottom: 6px;
