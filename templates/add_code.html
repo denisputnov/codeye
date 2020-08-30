@@ -6,9 +6,7 @@ Add your code and share
 
 {% block body%}
 <form action="/add_code" method="post" enctype="multipart/form-data">
-    <div class="code_edit_block">
-        <textarea name="code" id="code_textarea" style="font-size: 14px" spellcheck="false" required="true" tabindex="4" class="code_edit_code" wrap="off" placeholder="Write your code here"></textarea>
-    </div>
+   
     <input class="button_confirm" type="submit" value="Confirm">
     <div class="description_bar">
         <input name="name" id="name" class="code_add_name" placeholder="Enter your name/nickname" required="false" spellcheck="false">
@@ -18,18 +16,11 @@ Add your code and share
         </div> 
         <textarea name="description" id="description" style="font-size: 14px;" class="description_bar_textarea" placeholder="Description here" wrap="hard" ></textarea>
         <textarea name="lang" id="hidden_lang" class="hidden_lang">Python</textarea>
+    </div> 
+    <div class="code_edit_block">
+        <textarea name="code" id="code_textarea" style="font-size: 14px" spellcheck="false" required="true" tabindex="4" class="code_edit_code" wrap="off" placeholder="Write your code here"></textarea>
     </div>
 </form>
-
-<!-- <script>
-    document.body.onkeydown = function(e){
-        e = e || window.event;
-        var c = e.keyCode;
-        if(c>36 && c<41 || c>32 && c<37) return false;
-    }
-    document.body.style.overflowY = 'hidden';
-</script> -->
-
 <script>
 let input_file_label_text = document.getElementById('input_file_label_text');
 let file_input_button = document.getElementById('file_input_button');
@@ -44,6 +35,5 @@ function changeVisibleValue() {
         input_file_label_text.textContent = 'Upload photo';
     }
 }
-
 </script>
 {% endblock %}
