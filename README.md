@@ -1,6 +1,6 @@
 # Codeye - online code platform
 
-One of my pet projects. Code is awful. 
+codeye.ru - One of my pet projects. Code is awful. 
 
 ### Find me here:
 * [Telegram](https://t.me/grnbows) </br>
